@@ -18,11 +18,28 @@ Utiliza bind mount para que el directorio del apache2 'htdocs' esté montado un 
 
 4-Realiza un 'hola mundo' en html y comprueba que accedes desde el navegador.
 
-<html>
+"<html>
   <head></head>
   <body>
     <h1>Hola mundo</h1>
   </body>
-</html>
+</html>"
 
-Tienes que escribir en el navegador 10.0.9.144
+Tienes que escribir en el navegador 10.0.9.144:8080
+
+5-Crea otro contenedor 'dam_web2' con el mismo bind mount y a otro puerto, por ejemplo 9080.
+
+--sudo docker run -p 8080:80 -v /home/daniel/Compartida:/usr/local/apache2/htdocs --name dam_web2 httpd
+
+Para entrar tienes que escribir en el navegador 10.0.9.144:9080
+
+6-Comprueba que los dos servidores 'sirven' la misma página, es decir, cuando consultamos en el navegador:
+
+    http://localhost:9080 
+    http://localhost:8000
+
+Muestran la misma pagina
+
+7-Realiza modificaciones de la página y comprueba que los dos servidores 'sirven' la misma página
+
+Efectivamente muestra la misma pagina
